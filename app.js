@@ -1,6 +1,9 @@
 const totalFlips = document.getElementById("total-flips");
 const headsResults = document.getElementById("heads-results");
 const tailsResults = document.getElementById("tails-results");
+const previousTotalFlips = document.getElementById("previous-flips");
+const previousHeadsResults = document.getElementById("previous-heads-results");
+const previousTailsResults = document.getElementById("previous-tails-results");
 const doFlips = document.getElementById("do-flips");
 coinFlipResults = [];
 
@@ -16,7 +19,7 @@ function coinFlip() {
   coinFlipResults.push(flipResult);
 };
 
-function checkHeadsTails(array) {
+function checkHeadsTails(array, headsElem, tailsElem) {
   var headsCount = 0;
   var tailsCount = 0;
   for (var i = 0; i < array.length; i++) {
@@ -29,12 +32,12 @@ function checkHeadsTails(array) {
       tailsCount++
     }
   }
-  headsResults.innerHTML = headsCount;
-  tailsResults.innerHTML = tailsCount;
 
+  previousCoinFlipResults = coinFlipResults.slice(0);
   coinFlipResults.length = 0;
-  console.log(headsCount + " number of heads");
-  console.log(tailsCount + " number of heads");
+
+  headsElem.innerHTML = headsCount;
+  tailsElem.innerHTML = tailsCount;
 }
 
 function multipleFlips(flips) {
@@ -42,7 +45,9 @@ function multipleFlips(flips) {
     coinFlip()
   }
   totalFlips.innerHTML = flips;
-  checkHeadsTails(coinFlipResults, "heads");
+  previousTotalFlips.innerHTML = flips;
+  checkHeadsTails(coinFlipResults, headsResults, tailsResults);
+  checkHeadsTails(previousCoinFlipResults, previousHeadsResults, previousTailsResults);
   return coinFlipResults;
 }
 

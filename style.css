@@ -1,0 +1,40 @@
+html body {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(220, 220, 220);
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.content div {
+  width: 40%;
+  margin: 5%;
+  border: 4px solid #222;
+  text-align: center;
+  background-color: rgba(1, 1, 250, 0.85);
+  color: #fff;
+  text-shadow: 1px 1px #111;
+  line-height: 30px;
+  text-overflow: clip;
+}
+
+.content div p {
+  font-size: 20px;
+}
+
+.results label {
+  font-size: 24px;
+}
+
+.previous-results label {
+  font-size: 20px;
+}
+
+button {
+  font-size: 24px;
+  width: 40%;
+  margin: auto 30%;
+}
