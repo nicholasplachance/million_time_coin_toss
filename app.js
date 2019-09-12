@@ -14,7 +14,7 @@ function coinFlip() {
   }
 
   coinFlipResults.push(flipResult);
-};
+}
 
 function checkHeadsTails(array, headsElem, tailsElem) {
   var headsCount = 0;
@@ -29,7 +29,7 @@ function checkHeadsTails(array, headsElem, tailsElem) {
       tailsCount++
     }
   }
-
+  array.length = 0;
   headsElem.innerHTML = headsCount;
   tailsElem.innerHTML = tailsCount;
 }
